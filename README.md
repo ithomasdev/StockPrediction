@@ -14,3 +14,11 @@ sp\Scripts\activate
 python app.py
 or
 python3 app.py
+
+# dependencies
+Flask
+Numpy
+yFinance
+Pandas
+requests
+lxml
