@@ -1,5 +1,13 @@
 import yfinance as yf
+import pandas as pd
 
-appl = yf.Ticker("APPL")
+# get dataframe using folder and stock name
+def get_dataframe():
+    return
 
-print(appl.info)
+# create excel file using dask and yfinance
+# needs to have a time interval set by default
+def create_excel(symbol):
+    return
+
+
