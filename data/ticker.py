@@ -2,7 +2,7 @@ import yfinance as yf
 import pandas as pd
 
 # get dataframe using folder and stock name
-def get_dataframe():
+def get_dataframe(symbol):
     return
 
 # create excel file using dask and yfinance
