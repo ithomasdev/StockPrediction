@@ -1,6 +1,9 @@
 # Stock Prediction
 ## Contributors
 ### Isaiah Thomas
+### Ricky Wei
+### Kyle Brisson
+
 This project will incorporate Machine Learning alogrithms to predict stock progression
 
 # Starting Virtual Environment
@@ -11,9 +14,9 @@ source sp/bin/activate
 sp\Scripts\activate
 
 # Run Commands
-python app.py
-or
-python3 app.py
+export FLASK_APP=app
+
+flask run
 
 # dependencies
 Flask
