@@ -8,7 +8,7 @@ from os.path import expanduser
 # get dataframe using folder and stock name
 # takes csv file and reads + returns the dataframe
 def get_dataframe(symbol):
-    return
+    return pd.read_csv(symbol)
 
 # create excel file using dask and yfinance
 # needs to have a time interval set by default
@@ -26,7 +26,7 @@ def create_excel(symbol, timeStart, timeEnd):
     #make filepath
     home = expanduser("~")
     
-    filename = "\Desktop\\" + symbol
+    filename = "\Desktop\\" + symbol + " " + timeStart + " to " + timeEnd
     
     filepath = home + filename + ".csv"
     
