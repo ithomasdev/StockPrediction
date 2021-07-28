@@ -15,6 +15,7 @@ sp\Scripts\activate
 
 # Run Commands
 export FLASK_APP=app
+
 flask run
 
 # dependencies
