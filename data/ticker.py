@@ -27,14 +27,9 @@ def create_excel(symbol, timeStart, timeEnd):
     df = dd.from_pandas(pd, npartitions=3)
     
     #make filepath
-    #home = expanduser("~")
-    
-    #filename = "\Desktop\\" + symbol + "_" + timeStart + "_to_" + timeEnd
     filename = symbol + "_" + timeStart + "_to_" + timeEnd
     
-    #filepath = home + filename + ".csv"
-    
-    filepath = os.getcwd() + filename
+    filepath = os.getcwd() + "\\" + symbol + "\\" + filename
     
     print ("Created in: " + filepath)
     
