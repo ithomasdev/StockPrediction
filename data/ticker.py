@@ -2,6 +2,7 @@ import yfinance as yf
 import pandas as pd
 import dask.dataframe as dd
 import calendar
+import os
 from pandas_datareader import data as pdr
 from dask.dataframe import from_pandas
 from os.path import expanduser
@@ -9,8 +10,8 @@ from os.path import expanduser
 # need to create test for this 
 # get dataframe using folder and stock name
 # takes csv file and reads + returns the dataframe
-def get_dataframe(symbol):
-    return pd.read_csv(symbol)
+def get_dataframe(filepath):
+    return pd.read_csv(filepath)
 
 # create excel file using dask and yfinance
 # needs to have a time interval set by default
@@ -25,16 +26,17 @@ def create_excel(symbol, timeStart, timeEnd):
     #convert from pandas to dask dataframe
     df = dd.from_pandas(pd, npartitions=3)
     
-    #change filepath to be user chosen
     #make filepath
-    home = expanduser("~")
+    #home = expanduser("~")
     
-    filename = "\Desktop\\" + symbol + "_" + timeStart + "_to_" + timeEnd
+    #filename = "\Desktop\\" + symbol + "_" + timeStart + "_to_" + timeEnd
+    filename = symbol + "_" + timeStart + "_to_" + timeEnd
     
-    filepath = home + filename + ".csv"
+    #filepath = home + filename + ".csv"
+    
+    filepath = os.getcwd() + filename
     
     print ("Created in: " + filepath)
-    #change filepath to be user chosen
     
     #convert to csv file
     df.to_csv(filepath, single_file = True)
