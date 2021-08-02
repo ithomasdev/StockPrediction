@@ -12,7 +12,7 @@ def home():
 
 @app.route('/login', methods=['POST', 'GET'])
 def login(user, password):
-    if request.methods == 'POST':
+    if request.method == 'POST':
         user = request.form['']
         password = request.form['']
         session['user'] = user
@@ -44,29 +44,29 @@ def about():
     return 'About the Project'
 
 
-@app.route('/about/devs')
+@app.route('/about/<devs>')
 def about_devs(devs):
-    return 'About the Devs'
+    return 'About the Devs %s' % devs
 
 
-@app.route('/featured stocks')
+@app.route('/Stock')
 def featured_stocks():
     return "Featured Stocks"
 
 
-@app.route('/featured_stocks/ticker', methods=['GET', 'POST', 'DELETE'])
+@app.route('/Stock/<ticker>', methods=['GET', 'POST', 'DELETE'])
 def tickers(ticker):
-    if request.methods == 'GET':
-        return "Stock: " + ticker
+    if request.method == 'GET':
+        return "Stock: %s" % ticker + "You are using a GET method"
 
-    if request.methods == 'POST':
-        return ticker
+    if request.method == 'POST':
+        return "Stock: %s" % ticker
 
-    if request.methods == 'DELETE':
-        return ticker
+    if request.method == 'DELETE':
+        return "Stock: %s" % ticker
 
     else:
-        'Post Error 405 Method Not Allowed'
+        return 'Post Error 405 Method Not Allowed'
 
 
 @app.route('/progress')
