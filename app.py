@@ -1,13 +1,16 @@
 from flask import Flask, render_template, redirect, url_for, request, session
-
+import dask.dataframe as df
+import os
+import set_up
 
 app = Flask(__name__)
 app.secret_key = 'Stock prediction'
 
+Stocks = set_up.get_stocks()
 
 @app.route('/')
 def home():
-    return render_template('index.ejs')
+    return 'Hello World!'
 
 
 @app.route('/login', methods=['POST', 'GET'])
@@ -75,4 +78,6 @@ def progress():
 
 
 if __name__ == '__main__':
+    # prepares data before app runs
+    set_up.set_up()
     app.run(debug=True)

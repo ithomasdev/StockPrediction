@@ -6,12 +6,17 @@ import os
 from pandas_datareader import data as pdr
 from dask.dataframe import from_pandas
 from os.path import expanduser
+import platform
 
 # need to create test for this 
 # get dataframe using folder and stock name
 # takes csv file and reads + returns the dataframe
-def get_dataframe(filepath):
+def get_partial_dataframe(filepath):
     return pd.read_csv(filepath)
+
+# takes in symbol name and returns a full dataframe from all partial dataframes
+def get_full_dataframe(symbol):
+    return dd.read_csv(os.getcwd() + '/data/' + symbol + '/*', dtype={'Volume': 'float64'})
 
 # create excel file using dask and yfinance
 # needs to have a time interval set by default
@@ -20,7 +25,7 @@ def create_excel(symbol, timeStart, timeEnd):
 
     #get dataframe for pandas
     pd = pdr.get_data_yahoo(symbol, start=timeStart, end=timeEnd)
-    
+
     print (pd)
     
     #convert from pandas to dask dataframe
@@ -29,8 +34,13 @@ def create_excel(symbol, timeStart, timeEnd):
     #make filepath
     filename = symbol + "_" + timeStart + "_to_" + timeEnd
     
-    filepath = os.getcwd() + "\\" + symbol + "\\" + filename
-    
+    filepath = os.getcwd() + "\\data\\" + symbol + "\\" + filename
+
+    os_name = platform.system()
+
+    if 'Darwin' in os_name:
+        filepath = filepath.replace('\\','/')
+
     print ("Created in: " + filepath)
     
     #convert to csv file
