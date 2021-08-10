@@ -1,27 +1,17 @@
-# Stock Prediction
+# **Stock Prediction**
 ## Contributors
-### Isaiah Thomas
-### Ricky Wei
-### Kyle Brisson
+### *Isaiah Thomas, Ricky Wei, and Kyle Brisson*
 
-This project will incorporate Machine Learning alogrithms to predict stock progression
+# Description
+This project incorporates Front-end, Back-end, and Data Science concepts to create a fully functioning web application. The web application allows user to view historical stock data, predict certain stock values using machine learning, and much more.
 
-# Starting Virtual Environment
-## Activate the virtualenv (OS X & Linux)
-source sp/bin/activate
+# Stocks in current production
+Symbol | Name
+------ | ----
+APPL   | Apple
+AMZN   | Amazon
 
-## Activate the virtualenv (Windows)
-sp\Scripts\activate
-
-# Run Commands
-export FLASK_APP=app
-
-flask run
-
-# dependencies
-Flask
-Numpy
-yFinance
-Pandas
-requests
-lxml
+# Tools used
+- Flask - Web Application
+- yFinance - API for historical stock data
+- Pandas, Numpy, Dask - Holding and Processing data
