@@ -10,7 +10,7 @@ Stocks = set_up.get_stocks()
 
 @app.route('/')
 def home():
-    return 'Hello World!'
+    return render_template('index.ejs')
 
 
 @app.route('/login', methods=['POST', 'GET'])
