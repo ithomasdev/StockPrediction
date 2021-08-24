@@ -2,3 +2,7 @@
 .idea/workspace.xml
 .idea/inspectionProfiles/Project_Default.xml
 .idea/vcs.xml
+__pycache__/set_up.cpython-39.pyc
+.idea/misc.xml
+data/__pycache__/ticker.cpython-39.pyc
+models/__pycache__/Stock.cpython-39.pyc

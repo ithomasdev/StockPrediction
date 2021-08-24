@@ -16,6 +16,11 @@ var myChart = new Chart
             }
             options:
             {
+                title:
+                {
+                    display: true,
+                    text: "Weekly Stock Data for: *Stock Ticker*"
+                }
 
             }
         }
